@@ -39,7 +39,17 @@
 	</head>
 	<body>
 		<div>
-			<a href='register.htm'>点击注册</a>
+			<script>
+				function trackregister()
+				{
+					zhuge.track('注册', {'用户名':'实际的用户名'});
+				}
+			</script>
+			<form name='registerform' action='#' onsubmit='return trackregister()' method='post'>
+				用户：<input type='text' name='username'><br/>
+				密码：<input type='password' name='pasword'><br/>
+				<input type='submit' value='注册'>
+			</form>
 		</div>
 	</body>
 </html>
