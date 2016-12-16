@@ -39,7 +39,82 @@
 	</head>
 	<body>
 		<div>
-			<a href='register.htm'>点击注册</a>
-		</div>
+		
+			<script>
+				function make_appointment()
+				{
+					zhuge.track('预约试驾', {'用户名':'实际的用户名'});
+					alert('预约成功！')；
+				}
+			</script>
+<div class="select-group">
+					<div class="title"><span>*</span> 意向车型</div>
+					<div class="module">
+						<select class="must" data-placeholder="车系" name="atd_atdIntentCar" id="atd_atdIntentCar" login="IntentStyle" onchange="change_autos('atd_atdIntentModel',this.value,'');">
+						<option value="">车系</option>
+						</select>
+						<select class="must" data-placeholder="车型" name="atd_atdIntentModel" id="atd_atdIntentModel" valid login="IntentModel">
+						<option value="">车型</option>
+						</select>
+						<div style="display:none;" class="error-msg" id="atd_atdIntentModel_msg">请选择您的意向车型</div>
+					</div>
+				</div>
+				<div class="select-group">
+					<div class="title"><span>*</span> 意向经销商</div>
+					<div class="module">
+						<select class="must" data-placeholder="经销商省" name="atd_atdDealerProvince" id="dealerProvince">
+						</select>
+						<select class="must" data-placeholder="经销商市" name="atd_atdDealerCity" id="dealerCity">
+						</select>
+						<select class="must" data-placeholder="经销商" name="atd_atdIntentDealer" id="dealer" valid>
+						</select>
+						<div style="display:none;" class="error-msg" id="dealer_msg">请选择您的意向经销商</div>
+					</div>
+				</div>
+				<div class="input-group">
+					<div class="title"><span>* </span> 姓名</div>
+					<div class="module">
+						<input type="text" class="input" placeholder="请填写姓名" name="atd_atdName" id="atd_atdName" valid dataType="realName"/>
+						<div style="display:none;"  class="error-msg" id="atd_atdName_msg">您的姓名不可为空</div>
+						<div style="display:none;"  class="error-msg" id="atd_atdName_fail">您填写的姓名不正确</div>
+					</div>
+				</div>
+
+				<div class="input-group ly-md-sex">
+					<div class="title"><span>* </span> 性别</div>
+					<div class="module">
+						<div class="radio-group">
+							<a class="radio on" name="atd_atdGender" value="1">男</a>
+							<a class="radio" name="atd_atdGender" value="0">女</a>
+						</div>
+						<!--<div class="error-msg">请选择您的称谓</div>-->
+					</div>
+				</div>
+				<div class="input-group">
+					<div class="title"><span>* </span>移动电话</div>
+					<div class="module">
+						<input type="text" class="input" placeholder="请填写移动电话" valid dataType="mobile" name="atd_atdMobile" id="atd_atdMobile" maxlength="11"/>
+						<div style="display:none;" class="error-msg" id="atd_atdMobile_msg">您的移动电话不可为空</div>
+						<div style="display:none;" class="error-msg" id="atd_atdMobile_fail">您填写的移动电话不正确</div>
+					</div>
+				</div>
+
+				<div class="select-group">
+					<div class="title span">计划购车时间</div>
+					<div class="module">
+						<select data-placeholder="计划购车时间" name="atd_atdPlanBuytime" id="atd_atdPlanBuytime">
+							
+						</select>
+					</div>
+				</div>
+				<div class="ly-submit">
+					
+					<div class="checkbox-group">
+						<a class="checkbox on"></a>
+						<a class="text-agree" href="javascript:void(0)">同意隐私条款</a>
+					</div>
+					<a href="javascript:make_appointment();" class="btn-primary"><span>提&nbsp;&nbsp;&nbsp;交<img src="img/common/ico-white-arrow.png" alt="奥迪预约试驾"></span></a>
+				</div>		</div>
 	</body>
+	
 </html>
