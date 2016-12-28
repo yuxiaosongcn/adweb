@@ -1,0 +1,73 @@
+<html>
+	<head>
+		<title>ad web</title>
+ <script type="text/javascript">
+    window.zhuge = window.zhuge || [];
+    window.zhuge.methods = "_init debug identify track trackLink trackForm page".split(" ");
+    window.zhuge.factory = function(b) {
+        return function() {
+            var a = Array.prototype.slice.call(arguments);
+            a.unshift(b);
+            window.zhuge.push(a);
+            return window.zhuge;
+        }
+    };
+    for (var i = 0; i < window.zhuge.methods.length; i++) {
+        var key = window.zhuge.methods[i];
+        window.zhuge[key] = window.zhuge.factory(key);
+    }
+    window.zhuge.load = function(b, x) {
+        if (!document.getElementById("zhuge-js")) {
+            var a = document.createElement("script");
+            var verDate = new Date();
+            var verStr = verDate.getFullYear().toString()
+                + verDate.getMonth().toString() + verDate.getDate().toString();
+
+            a.type = "text/javascript";
+            a.id = "zhuge-js";
+            a.async = !0;
+            a.src = (location.protocol == 'http:' ? "http://sdk.zhugeio.com/zhuge.min.js?v=" : 'https://zgsdk.zhugeio.com/zhuge.min.js?v=') + verStr;
+            var c = document.getElementsByTagName("script")[0];
+            c.parentNode.insertBefore(a, c);
+            window.zhuge._init(b, x)
+        }
+    };
+    window.zhuge.load('434e59915a264154875bbb7efe2a881d');
+		</script>
+	</head>
+	<body>
+	<h1>落地页示例</h1>
+		<div>
+		
+			<script>
+				function make_appointment()
+				{
+					model = document.getElementById('atd_atdIntentModel').value;
+					name = document.getElementById('atd_atdName').value;
+					mobile = document.getElementById('atd_atdMobile').value;
+					zhuge.track('预约试驾', {'车型': model, '姓名': name, '电话': mobile});
+					alert('预约成功！');
+				}
+			</script>
+<div class="select-group">
+					<div> 车型：
+						<select class="must" data-placeholder="车型" name="atd_atdIntentModel" id="atd_atdIntentModel" valid login="IntentModel">
+						<option value="车型">车型</option>
+						<option value="奥迪A3">奥迪A3</option>
+						<option value="奥迪Q5">奥迪Q5</option>
+						<option value="奥迪TT">奥迪TT</option>
+						</select>
+					</div>
+					<div> 姓名：
+						<input type="text" class="input" value='王先生' placeholder="请填写姓名" name="atd_atdName" id="atd_atdName" valid dataType="realName"/>
+					</div>
+					<div> 电话：
+						<input type="text" class="input" value='13888888888' placeholder="请填写移动电话" valid dataType="mobile" name="atd_atdMobile" id="atd_atdMobile" maxlength="11"/>
+					</div>
+					<div>
+					<br>
+					<a href="javascript:make_appointment();" class="btn-primary"><span>提&nbsp;&nbsp;&nbsp;交</a>
+				</div>		</div>
+	</body>
+	
+</html>
